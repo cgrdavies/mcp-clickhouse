@@ -25,8 +25,8 @@ class ClickHouseConfig:
         CLICKHOUSE_PORT: The port number (default: 8443 if secure=True, 8123 if secure=False)
         CLICKHOUSE_SECURE: Enable HTTPS (default: true)
         CLICKHOUSE_VERIFY: Verify SSL certificates (default: true)
-        CLICKHOUSE_CONNECT_TIMEOUT: Connection timeout in seconds (default: 30)
-        CLICKHOUSE_SEND_RECEIVE_TIMEOUT: Send/receive timeout in seconds (default: 300)
+        CLICKHOUSE_CONNECT_TIMEOUT: Connection timeout in seconds (default: 1800)
+        CLICKHOUSE_SEND_RECEIVE_TIMEOUT: Send/receive timeout in seconds (default: 1800)
         CLICKHOUSE_DATABASE: Default database to use (default: None)
     """
 
@@ -85,17 +85,17 @@ class ClickHouseConfig:
     def connect_timeout(self) -> int:
         """Get the connection timeout in seconds.
 
-        Default: 30
+        Default: 1800
         """
-        return int(os.getenv("CLICKHOUSE_CONNECT_TIMEOUT", "30"))
+        return int(os.getenv("CLICKHOUSE_CONNECT_TIMEOUT", "1800"))
 
     @property
     def send_receive_timeout(self) -> int:
         """Get the send/receive timeout in seconds.
 
-        Default: 300 (ClickHouse default)
+        Default: 1800 (30 minutes)
         """
-        return int(os.getenv("CLICKHOUSE_SEND_RECEIVE_TIMEOUT", "300"))
+        return int(os.getenv("CLICKHOUSE_SEND_RECEIVE_TIMEOUT", "1800"))
 
     def get_client_config(self) -> dict:
         """Get the configuration dictionary for clickhouse_connect client.

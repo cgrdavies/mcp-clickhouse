@@ -50,8 +50,8 @@ An MCP server for ClickHouse.
         "CLICKHOUSE_PASSWORD": "<clickhouse-password>",
         "CLICKHOUSE_SECURE": "true",
         "CLICKHOUSE_VERIFY": "true",
-        "CLICKHOUSE_CONNECT_TIMEOUT": "30",
-        "CLICKHOUSE_SEND_RECEIVE_TIMEOUT": "30"
+        "CLICKHOUSE_CONNECT_TIMEOUT": "1800",
+        "CLICKHOUSE_SEND_RECEIVE_TIMEOUT": "1800"
       }
     }
   }
@@ -82,8 +82,8 @@ Or, if you'd like to try it out with the [ClickHouse SQL Playground](https://sql
         "CLICKHOUSE_PASSWORD": "",
         "CLICKHOUSE_SECURE": "true",
         "CLICKHOUSE_VERIFY": "true",
-        "CLICKHOUSE_CONNECT_TIMEOUT": "30",
-        "CLICKHOUSE_SEND_RECEIVE_TIMEOUT": "30"
+        "CLICKHOUSE_CONNECT_TIMEOUT": "1800",
+        "CLICKHOUSE_SEND_RECEIVE_TIMEOUT": "1800"
       }
     }
   }
@@ -138,10 +138,10 @@ The following environment variables are used to configure the ClickHouse connect
   * Default: `"true"`
   * Set to `"false"` to disable certificate verification (not recommended for production)
 * `CLICKHOUSE_CONNECT_TIMEOUT`: Connection timeout in seconds
-  * Default: `"30"`
+  * Default: `"1800"`
   * Increase this value if you experience connection timeouts
 * `CLICKHOUSE_SEND_RECEIVE_TIMEOUT`: Send/receive timeout in seconds
-  * Default: `"300"`
+  * Default: `"1800"`
   * Increase this value for long-running queries
 * `CLICKHOUSE_DATABASE`: Default database to use
   * Default: None (uses server default)
